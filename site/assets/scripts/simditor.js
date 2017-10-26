@@ -1,16 +1,17 @@
+'use strict';
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module unless amdModuleId is set
-    define('simditor', ["jquery","simple-module","simple-hotkeys","simple-uploader"], function ($, SimpleModule, simpleHotkeys, simpleUploader) {
+    define('simditor', ["jquery","simple-module","simple-hotkeys","r-simple-uploader"], function ($, SimpleModule, simpleHotkeys, simpleUploader) {
       return (root['Simditor'] = factory($, SimpleModule, simpleHotkeys, simpleUploader));
     });
   } else if (typeof exports === 'object') {
     // Node. Does not work with strict CommonJS, but
     // only CommonJS-like environments that support module.exports,
     // like Node.
-    module.exports = factory(require("jquery"),require("simple-module"),require("simple-hotkeys"),require("simple-uploader"));
+    module.exports = factory(require("jquery"),require("simple-module"),require("simple-hotkeys"),require("r-simple-uploader"));
   } else {
-    root['Simditor'] = factory(jQuery,SimpleModule,simple.hotkeys,simple.uploader);
+    root['Simditor'] = factory(root["jQuery"],root["SimpleModule"],root["simple.hotkeys"],root["simple.uploader"]);
   }
 }(this, function ($, SimpleModule, simpleHotkeys, simpleUploader) {
 
@@ -2679,8 +2680,8 @@ Simditor.i18n = {
     'linkText': '链接文字',
     'linkUrl': '链接地址',
     'linkTarget': '打开方式',
-    'openLinkInCurrentWindow': '在新窗口中打开',
-    'openLinkInNewWindow': '在当前窗口中打开',
+    'openLinkInCurrentWindow': '在当前窗口中打开',
+    'openLinkInNewWindow': '在新窗口中打开',
     'removeLink': '移除链接',
     'ol': '有序列表',
     'ul': '无序列表',

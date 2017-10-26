@@ -89,8 +89,8 @@ module.exports = (grunt) ->
         globalAlias: 'Simditor'
         deps:
           'default': ['$', 'SimpleModule', 'simpleHotkeys', 'simpleUploader']
-          amd: ['jquery', 'simple-module', 'simple-hotkeys', 'simple-uploader']
-          cjs: ['jquery', 'simple-module', 'simple-hotkeys', 'simple-uploader']
+          amd: ['jquery', 'simple-module', 'simple-hotkeys', 'r-simple-uploader']
+          cjs: ['jquery', 'simple-module', 'simple-hotkeys', 'r-simple-uploader']
           global:
             items: ['jQuery', 'SimpleModule', 'simple.hotkeys', 'simple.uploader']
             prefix: ''
@@ -260,6 +260,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-curl'
 
   grunt.registerTask 'default', ['site', 'express', 'watch']
+  grunt.registerTask 'build', ['sass', 'coffee', 'umd']
   grunt.registerTask 'site', ['sass', 'coffee', 'umd', 'copy:vendor', 'copy:scripts', 'copy:styles', 'usebanner', 'jekyll']
   grunt.registerTask 'test', ['coffee:moduleSpec', 'coffee:buttonSpec', 'jasmine']
   grunt.registerTask 'package', ['clean:package', 'copy:package', 'uglify:simditor', 'compress']
