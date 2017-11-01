@@ -187,21 +187,25 @@ class ImageButton extends Button
         msg = result.msg || @_t('uploadFailed')
         alert msg
         img_path = @defaultImage
+        imgRemove = !@editor.uploader.opts.base64
       else
-        img_path = result.file_path
+        img_path = if result.file_path then result.file_path else file.file_path
 
-      @loadImage $img, img_path, =>
-        $img.removeData 'file'
-        $img.removeClass 'uploading'
-        .removeClass 'loading'
+      if imgRemove
+        this.editor.body.remove($img)
+      else
+        @loadImage $img, img_path, =>
+          $img.removeData 'file'
+          $img.removeClass 'uploading'
+          .removeClass 'loading'
 
-        $mask = $img.data('mask')
-        $mask.remove() if $mask
-        $img.removeData 'mask'
+          $mask = $img.data('mask')
+          $mask.remove() if $mask
+          $img.removeData 'mask'
 
-        @editor.trigger 'valuechanged'
-        if @editor.body.find('img.uploading').length < 1
-          @editor.uploader.trigger 'uploadready', [file, result]
+          @editor.trigger 'valuechanged'
+          if @editor.body.find('img.uploading').length < 1
+            @editor.uploader.trigger 'uploadready', [file, result]
 
       if @popover.active
         @popover.srcEl.prop('disabled', false)
@@ -218,19 +222,21 @@ class ImageButton extends Button
         catch e
           msg = @_t('uploadError')
 
-        alert msg
-
       $img = file.img
       return unless $img.hasClass('uploading') and $img.parent().length > 0
 
-      @loadImage $img, @defaultImage, =>
-        $img.removeData 'file'
-        $img.removeClass 'uploading'
-        .removeClass 'loading'
+      if @editor.uploader.opts.base64
+        @loadImage $img, @defaultImage, =>
+          $img.removeData 'file'
+          $img.removeClass 'uploading'
+          .removeClass 'loading'
 
-        $mask = $img.data('mask')
-        $mask.remove() if $mask
-        $img.removeData 'mask'
+          $mask = $img.data('mask')
+          $mask.remove() if $mask
+          $img.removeData 'mask'
+      else
+        $img.remove()
+        alert msg
 
       if @popover.active
         @popover.srcEl.prop('disabled', false)
