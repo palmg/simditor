@@ -195,7 +195,7 @@
   left: 0;
 }
 .simditor .simditor-body {
-  padding: 22px 15px 40px;
+  padding: 20px;
   min-height: 300px;
   outline: none;
   cursor: text;
@@ -636,7 +636,6 @@
   word-wrap: break-word;
   margin: 0 0 15px 0;
   color: #333;
-  word-wrap: break-word;
 }
 .simditor .simditor-body b, .simditor .simditor-body strong, .editor-style b, .editor-style strong {
   font-weight: bold;
@@ -707,7 +706,7 @@
 }
 .simditor .simditor-body hr, .editor-style hr {
   display: block;
-  height: 0px;
+  height: 0;
   border: 0;
   border-top: 1px solid #ccc;
   margin: 15px 0;
@@ -736,6 +735,7 @@
   background-color: #ffffee;
 }
 .simditor .simditor-body img, .editor-style img {
-  margin: 0 5px;
   vertical-align: middle;
+  max-width: 100%;
+  height: auto;
 }

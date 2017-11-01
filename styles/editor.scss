@@ -68,7 +68,7 @@ $simditor-button-width: 46px;
   }
 
   .simditor-body {
-    padding: 22px 15px 40px;
+    padding: 20px;
     min-height: 300px;
     outline: none;
     cursor: text;
@@ -568,7 +568,6 @@ $simditor-button-width: 46px;
     word-wrap: break-word;
     margin: 0 0 15px 0;
     color: #333;
-    word-wrap: break-word;
   }
 
   b, strong {
@@ -654,7 +653,7 @@ $simditor-button-width: 46px;
 
   hr {
     display: block;
-    height: 0px;
+    height: 0;
     border: 0;
     border-top: 1px solid #ccc;
     margin: 15px 0;
@@ -687,10 +686,9 @@ $simditor-button-width: 46px;
     }
   }
 
-
   img {
-    margin: 0 5px;
     vertical-align: middle;
+    max-width: 100%;
+    height: auto;
   }
-
 }
