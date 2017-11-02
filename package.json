@@ -1,25 +1,25 @@
 {
   "name": "r-simditor",
-  "version": "2.3.7",
+  "version": "2.3.8",
   "description": "A simple online editor",
-  "keywords": "editor simditor",
+  "keywords": ["editor"],
   "repository": {
     "type": "git",
-    "url": "git@github.com:mycolorway/simditor.git"
+    "url": "git+https://github.com/palmg/simditor.git"
   },
-  "author": "farthinker <farthinker@gmail.com>",
+  "author": "palmg",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mycolorway/simditor/issues"
+    "url": "https://github.com/palmg/simditor/issues"
   },
   "scripts": {
     "test": "grunt test --verbose",
     "example": "webpack-dev-server --progress --colors --inline --config ./example/webpack"
   },
   "main": "lib/simditor.js",
-  "homepage": "http://simditor.tower.im",
+  "homepage": "https://github.com/palmg/simditor",
   "dependencies": {
-    "r-simple-uploader": "git+https://github.com/palmg/simple-uploader.git",
+    "r-simple-uploader": "^3.0.1",
     "simple-hotkeys": "^1.0.3",
     "simple-module": "^2.0.6"
   },
